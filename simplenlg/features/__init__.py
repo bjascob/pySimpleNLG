@@ -1,0 +1,12 @@
+from . ClauseStatus         import *
+from . DiscourseFunction    import *
+from . Feature              import *
+from . Form                 import *
+from . Gender               import *
+from . Inflection           import *
+from . InternalFeature      import *
+from . InterrogativeType    import *
+from . LexicalFeature       import *
+from . NumberAgreement      import *
+from . Person               import *
+from . Tense                import *
