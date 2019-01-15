@@ -100,7 +100,7 @@ class MorphologyRules(object):
     def buildGrecoLatinPluralNoun(cls, baseForm):
         plural = None
         if baseForm is not None:
-            if baseForm.endsWwith("us"):
+            if baseForm.endswith("us"):
                 plural = re.sub(r"us\b", "i", baseForm)
             elif baseForm.endswith("ma"):
                 plural = baseForm + "ta"
