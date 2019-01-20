@@ -14,7 +14,10 @@ The project is compatible with python version 3.4+.  It will not work with pytho
 
 You don't need to install any additional libraries to run the code or execute the unit tests.
 
-There is currently no pip installation for the project.  Simply download or clone the project and put the *simplenlg* directory in your project's path or set a link to it.
+To install the code with pip do..
+```
+pip3 install simplenlg
+```
 
 ## Code Status
 A few less commonly used components have been omitted.  These include:
