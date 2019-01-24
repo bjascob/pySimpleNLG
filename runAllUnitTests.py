@@ -3,7 +3,8 @@ import os
 import sys
 import time
 from   fnmatch import fnmatch
-import importlib
+from   importlib.util import spec_from_file_location
+from   importlib.util import module_from_spec
 import inspect
 import unittest
 
@@ -28,8 +29,8 @@ def loadModule(fn):
     class_name = parts[-1]
     # Load the actual module
     try:
-        spec   = importlib.util.spec_from_file_location(prefix, fn)
-        module = importlib.util.module_from_spec(spec)
+        spec   = spec_from_file_location(prefix, fn)
+        module = module_from_spec(spec)
         spec.loader.exec_module(module)
     except ModuleNotFoundError:
         return (None, None)
@@ -53,8 +54,12 @@ if __name__ == '__main__':
     # Python files not to process
     blacklist_fns = ['tests/syntax/english/SimpleNLG4Test.py',          # base class, no tests
                      'tests/syntax/english/ClauseAggregationTest.py']   # Aggregation not implemented
+    blacklist_fns = [fn.replace('/', os.sep) for fn in blacklist_fns]
     # add the location to the path so the base class will automatically load
-    sys.path.append('tests/syntax/english')
+    loc = 'tests/syntax/english'
+    loc = loc.replace('/', os.sep)
+    sys.path.append(loc)
+    
 
     # Loop through all file names
     st = time.time()

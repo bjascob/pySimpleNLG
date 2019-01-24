@@ -32,7 +32,7 @@ from simplenlg.phrasespec.SPhraseSpec                        import *
 class ClauseAggregationTest(SimpleNLG4Test):
 
     # Instantiates a new clause aggregation test.
-    def ClauseAggregationTest(self, name):
+    def __init__(self, name):
         super().__init__(name)
         self.aggregator = Aggregator()
         self.aggregator.initialise()
