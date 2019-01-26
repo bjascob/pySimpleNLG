@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name='simplenlg',
-    version='0.1.0',
+    version='0.2.0',
     author='Brad Jascob',
     author_email='bjascob@msn.com',
     description='Python Implementation of SimpleNLG',

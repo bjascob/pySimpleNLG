@@ -37,7 +37,7 @@ def loadModule(fn):
     # Loop through all classes that are part of the module.  Returns a tuple of (name, value)
     # ie.. the string name of the class and the actual class definition that can be instantiated
     # This is finding the class by assuming that the name of the class is the same as the name of the file
-    my_class_tuple = None
+    my_class_tuple = (None, None)
     for class_tuple in inspect.getmembers(module, inspect.isclass):
         if class_tuple[0] == class_name:
             my_class_tuple = class_tuple
@@ -59,7 +59,6 @@ if __name__ == '__main__':
     loc = 'tests/syntax/english'
     loc = loc.replace('/', os.sep)
     sys.path.append(loc)
-    
 
     # Loop through all file names
     st = time.time()
