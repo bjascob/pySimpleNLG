@@ -87,7 +87,7 @@ class MorphologyRules(object):
     def buildRegularPluralNoun(cls, baseForm):
         plural = None
         if baseForm is not None:
-            if re.fullmatch(r".*[b-z&&^eiou]y\b", baseForm):
+            if re.fullmatch(r".*[b-z&&[^eiou]]y\b", baseForm):
                 plural = re.sub(r"y\b", "ies", baseForm)
             elif re.fullmatch(r".*([szx]|[cs]h)\b", baseForm):
                 plural = baseForm + "es"
