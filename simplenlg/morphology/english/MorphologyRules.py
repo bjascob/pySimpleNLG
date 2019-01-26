@@ -98,28 +98,28 @@ class MorphologyRules(object):
     # Builds a plural for Greco-Latin regular nouns.
     @classmethod
     def buildGrecoLatinPluralNoun(cls, baseForm):
-        plural = None
-        if baseForm is not None:
-            if baseForm.endswith("us"):
-                plural = re.sub(r"us\b", "i", baseForm)
-            elif baseForm.endswith("ma"):
-                plural = baseForm + "ta"
-            elif baseForm.endswith("a"):
-                plural = baseForm + "e"
-            elif re.fullmatch(r".*[(um)(on)]\b", baseForm):
-                plural = re.sub(r"[(um)(on)]\b",  "a", baseForm)
-            elif baseForm.endswith("sis"):
-                plural = re.sub(r"sis\b", "ses", baseForm)
-            elif baseForm.endswith("is"):
-                plural = re.sub(r"is\b", "ides", baseForm)
-            elif baseForm.endswith("men"):
-                plural = re.sub(r"men\b", "mina", baseForm)
-            elif baseForm.endswith("ex"):
-                plural = re.sub(r"ex\b", "ices", baseForm)
-            elif baseForm.endswith("x"):
-                plural = re.sub(r"x\b", "ces", baseForm)
-            else:
-                plural = baseForm
+        if not baseForm:
+            return None
+        if baseForm.endswith("us"):
+            plural = re.sub(r"us\b", "i", baseForm)
+        elif baseForm.endswith("ma"):
+            plural = baseForm + "ta"
+        elif baseForm.endswith("a"):
+            plural = baseForm + "e"
+        elif re.fullmatch(r".*(um|on)\b", baseForm):
+            plural = re.sub(r"(um|on)\b",  "a", baseForm)
+        elif baseForm.endswith("sis"):
+            plural = re.sub(r"sis\b", "ses", baseForm)
+        elif baseForm.endswith("is"):
+            plural = re.sub(r"is\b", "ides", baseForm)
+        elif baseForm.endswith("men"):
+            plural = re.sub(r"men\b", "mina", baseForm)
+        elif baseForm.endswith("ex"):
+            plural = re.sub(r"ex\b", "ices", baseForm)
+        elif baseForm.endswith("x"):
+            plural = re.sub(r"x\b", "ces", baseForm)
+        else:
+            plural = baseForm
         return plural
 
     # This method performs the morphology for verbs.
