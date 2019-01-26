@@ -87,7 +87,7 @@ class MorphologyRules(object):
     def buildRegularPluralNoun(cls, baseForm):
         plural = None
         if baseForm is not None:
-            if re.fullmatch(r".*[b-z&&[^eiou]]y\b", baseForm):
+            if re.fullmatch(r".*[^aeiou]y\b", baseForm):
                 plural = re.sub(r"y\b", "ies", baseForm)
             elif re.fullmatch(r".*([szx]|[cs]h)\b", baseForm):
                 plural = baseForm + "es"
@@ -235,7 +235,7 @@ class MorphologyRules(object):
                 morphology = "is"
             elif re.fullmatch(r".*[szx(ch)(sh)]\b", baseForm):
                 morphology = baseForm + "es"
-            elif re.fullmatch(r".*[b-z&&^eiou]y\b", baseForm):
+            elif re.fullmatch(r".*[^aeiou]y\b", baseForm):
                 morphology = re.sub(r"y\b", "ies", baseForm)
             else:
                 morphology = baseForm + "s"
@@ -256,7 +256,7 @@ class MorphologyRules(object):
                     morphology = "was"
             elif baseForm.endswith("e"):
                 morphology = baseForm + "d"
-            elif re.fullmatch(r".*[b-z&&^eiou]y\b",  baseForm):
+            elif re.fullmatch(r".*[^aeiou]y\b",  baseForm):
                 morphology = re.sub(r"y\b", "ied", baseForm)
             else:
                 morphology = baseForm + "ed"
@@ -347,7 +347,7 @@ class MorphologyRules(object):
     def buildRegularComparative(cls, baseForm):
         morphology = None
         if baseForm is not None:
-            if re.fullmatch(r".*[b-z&&^eiou]y\b", baseForm):
+            if re.fullmatch(r".*[^aeiou]y\b", baseForm):
                 morphology = re.sub(r"y\b", "ier", baseForm)
             elif baseForm.endswith("e"):
                 morphology = baseForm + "r"
@@ -370,7 +370,7 @@ class MorphologyRules(object):
     def buildRegularSuperlative(cls, baseForm):
         morphology = None
         if baseForm is not None:
-            if re.fullmatch(r".*[b-z&&^eiou]y\b", baseForm):
+            if re.fullmatch(r".*[^aeiou]y\b", baseForm):
                 morphology = re.sub(r"y\b", "iest", baseForm)
             elif baseForm.endswith("e"):
                 morphology = baseForm + "st"
