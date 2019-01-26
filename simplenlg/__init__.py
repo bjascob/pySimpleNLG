@@ -1,4 +1,6 @@
 import os
+__version__ = '0.3.0'
+
 resource_directory = os.path.join(os.path.dirname(__file__), 'resources')
 
 from .features      import *

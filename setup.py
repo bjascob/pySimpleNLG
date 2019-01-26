@@ -1,11 +1,17 @@
 import setuptools
 
+# There are currently no dependencies so this is fine but note that if 
+# dependencies are added, this is a bad technique because setup will
+# fail if those aren't installed first.
+from simplenlg import __version__
+
+
 with open("README.md", "r") as fh:
     long_description = fh.read()
 
 setuptools.setup(
     name='simplenlg',
-    version='0.2.0',
+    version=__version__,
     author='Brad Jascob',
     author_email='bjascob@msn.com',
     description='Python Implementation of SimpleNLG',
