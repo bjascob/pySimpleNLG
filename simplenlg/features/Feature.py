@@ -31,6 +31,7 @@ class Feature(object):
     # parent clause.
     COMPLEMENTISER = "complementiser"
     # This feature represents the word (or phrase) used for linking coordinated
+    # phrases together.
     CONJUNCTION = "conjunction"
     # This feature represents the type of conjunction this coordination
     # represents.
